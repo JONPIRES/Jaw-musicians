@@ -10,7 +10,7 @@ const musiciansSchema = new mongoose.Schema(
             type:String,
             required: [true, "insert an URL"]
         },
-        intrument:{
+        instrument:{
             type:String,
             Default: "Piano"
         }
