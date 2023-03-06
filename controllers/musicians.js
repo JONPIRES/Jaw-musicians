@@ -67,3 +67,16 @@ router.put('/:id', async (req,res,next) =>{
         next()
     }
 })
+
+router.delete('/:id', async (req, res, next) => {
+    try {
+        console.log(req.params);
+        console.log("I'm hitting the delete route");
+        const itemGettingDeleted = await Musicians.findByIdAndDelete(req.params.id);
+        console.log(itemGettingDeleted);
+        res.redirect('/musicians');
+    } catch(stuff) {
+        console.log(stuff);
+        return next();
+    }
+})
