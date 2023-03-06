@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express()
 
+const musicians = require('./controllers/musicians');
+
 app.set('view engine', 'ejs')
 
+app.use(express.static('public'))
 
 app.get('/', (req,res) =>{
 res.render('home')
 })
 
+app.use('/musicians', musicians )
 
 app.get('/*', (req,res) =>{
     res.render('404');
