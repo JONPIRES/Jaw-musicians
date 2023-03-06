@@ -25,6 +25,18 @@ router.get('/new', (req,res) =>{
     res.render('musicians/new.ejs')
 })
 
+router.get('/:id/edit', async (req,res,next) =>{
+    try{
+        const editArtist = await Musicians.findById(req.params.id);
+        res.render('musicians/edit.ejs', {edit:editArtist} )
+    }catch(err){
+        console.log(err)
+        return next()
+    }
+})
+
+
+
 router.post('/anything', async(req,res,next) =>{
     try{
         const newMusician = await Musicians.create(req.body);
