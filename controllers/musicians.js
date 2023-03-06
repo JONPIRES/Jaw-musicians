@@ -56,3 +56,14 @@ router.get('/:id', async (req,res,next) =>{
         return next()
     }
 })
+
+router.put('/:id', async (req,res,next) =>{
+    try{
+        console.log(req.params.id);
+        const update = await Musicians.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect('/musicians');
+    }catch(err){
+        console.log(err)
+        next()
+    }
+})

@@ -16,6 +16,16 @@ img{
 }
 
 .card{
-  margin: auto;
-  margin-top: 20px;
+ 
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+footer{
+    margin-top: 2rem;
 }
